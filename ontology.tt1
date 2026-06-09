@@ -1,0 +1,65 @@
+@prefix : <http://aispire.example.org/boardgames/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# ----- Classes -----
+
+:Game a rdfs:Class .
+:Designer a rdfs:Class .
+:Genre a rdfs:Class .
+
+:StrategyGame a rdfs:Class ;
+    rdfs:subClassOf :Game .
+
+:PartyGame a rdfs:Class ;
+    rdfs:subClassOf :Game .
+
+# ----- Genres -----
+
+:Strategy a :Genre ;
+    skos:prefLabel "Strategy" ;
+    skos:altLabel "Tactical" .
+
+:Party a :Genre ;
+    skos:prefLabel "Party" ;
+    skos:altLabel "Social" .
+
+# ----- Designers -----
+
+:designer1 a :Designer ;
+    :name "Klaus Teuber" .
+
+:designer2 a :Designer ;
+    :name "Elizabeth Hargrave" .
+
+:designer3 a :Designer ;
+    :name "Phil Walker-Harding" .
+
+# ----- Games -----
+
+:catan a :StrategyGame ;
+    :name "Catan" ;
+    :genre :Strategy ;
+    :designer :designer1 ;
+    :year 1995 .
+
+:wingspan a :StrategyGame ;
+    :name "Wingspan" ;
+    :genre :Strategy ;
+    :designer :designer2 ;
+    :year 2019 ;
+    :playTime 70 .
+
+:sushiGo a :PartyGame ;
+    :name "Sushi Go" ;
+    :genre :Party ;
+    :designer :designer3 ;
+    :year 2013 .
+
+:pointSalad a :PartyGame ;
+    :name "Point Salad" ;
+    :genre :Party ;
+    :designer :designer3 ;
+    :year 2019 ;
+    :playTime 20 .
